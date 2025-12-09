@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Criar conta</title>
+</head>
+
+<body>
+    <main id="form-container">
+        <div id="form-header">
+            <h1 id="form-title">Criar conta</h1>
+            <a href="login.html">
+                <button class="btn-default" type="button" title="Fazer login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </button>
+            </a>
+        </div>
+
+        <!-- Área de alertas -->
+        <div id="alert-container"></div>
+
+        <form method="post" action="cadastro.jsp" id="form">
+            <div id="input-container">
+                <div class="input-box">
+                    <label for="name" class="form-label">Primeiro nome *</label>
+                    <div class="input-field">
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Nome" required>
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="last_name" class="form-label">Último nome *</label>
+                    <div class="input-field">
+                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Sobrenome"
+                            required>
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="birthdate" class="form-label">Data de Nascimento</label>
+                    <div class="input-field">
+                        <input type="date" name="birthdate" id="birthdate" class="form-control">
+                        <i class="fa-regular fa-calendar"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="email" class="form-label">E-mail *</label>
+                    <div class="input-field">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="exemplo@gmail.com"
+                            required>
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <div class="input-field">
+                        <input type="tel" name="telefone" id="telefone" class="form-control"
+                            placeholder="(00) 00000-0000" maxlength="15">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="endereco" class="form-label">Endereço</label>
+                    <div class="input-field">
+                        <input type="text" name="endereco" id="endereco" class="form-control"
+                            placeholder="R. Andrade Silva">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <div class="input-field">
+                        <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Ex: Guarulhos">
+                        <i class="fa-solid fa-city"></i>
+                    </div>
+                </div>
+
+               <div class="input-box">
+    <label for="estado" class="form-label">Estado</label>
+    <div class="input-field">
+        <select name="estado" id="estado" class="form-control" required>
+            <option value="" disabled selected>Selecione o estado...</option>
+            <option value="AC">Acre (AC)</option>
+            <option value="AL">Alagoas (AL)</option>
+            <option value="AP">Amapá (AP)</option>
+            <option value="AM">Amazonas (AM)</option>
+            <option value="BA">Bahia (BA)</option>
+            <option value="CE">Ceará (CE)</option>
+            <option value="DF">Distrito Federal (DF)</option>
+            <option value="ES">Espírito Santo (ES)</option>
+            <option value="GO">Goiás (GO)</option>
+            <option value="MA">Maranhão (MA)</option>
+            <option value="MT">Mato Grosso (MT)</option>
+            <option value="MS">Mato Grosso do Sul (MS)</option>
+            <option value="MG">Minas Gerais (MG)</option>
+            <option value="PA">Pará (PA)</option>
+            <option value="PB">Paraíba (PB)</option>
+            <option value="PR">Paraná (PR)</option>
+            <option value="PE">Pernambuco (PE)</option>
+            <option value="PI">Piauí (PI)</option>
+            <option value="RJ">Rio de Janeiro (RJ)</option>
+            <option value="RN">Rio Grande do Norte (RN)</option>
+            <option value="RS">Rio Grande do Sul (RS)</option>
+            <option value="RO">Rondônia (RO)</option>
+            <option value="RR">Roraima (RR)</option>
+            <option value="SC">Santa Catarina (SC)</option>
+            <option value="SP">São Paulo (SP)</option>
+            <option value="SE">Sergipe (SE)</option>
+            <option value="TO">Tocantins (TO)</option>
+        </select>
+        <i class="fa-solid fa-map"></i>
+    </div>
+</div>
+                <div class="input-box">
+                    <label for="cep" class="form-label">CEP</label>
+                    <div class="input-field">
+                        <input type="text" name="cep" id="cep" class="form-control" placeholder="00000-000"
+                            maxlength="9">
+                        <i class="fa-solid fa-mailbox"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="senha" class="form-label">Senha *</label>
+                    <div class="input-field">
+                        <input type="password" name="senha" id="senha" class="form-control"
+                            placeholder="Mínimo 6 caracteres" required minlength="6">
+                        <i class="fa-regular fa-eye-slash password-icon"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="confirm_password" class="form-label">Confirmar senha *</label>
+                    <div class="input-field">
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control"
+                            placeholder="Repita a senha" required minlength="6">
+                        <i class="fa-regular fa-eye-slash password-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-default">
+                <i class="fa-solid fa-user-plus"></i>
+                Criar conta
+            </button>
+
+            <div class="registrar">
+                <p>Já tem uma conta? <a href="login.html">Fazer login</a></p>
+            </div>
+        </form>
+    </main>
+
+    <script src="cadastro.js"></script>
+</body>
+
+</html>

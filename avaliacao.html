@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Avaliação - Mão Amiga</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f5f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+
+        .card-avaliacao {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .prestador-avatar {
+            width: 120px;
+            height: 120px;
+            background: #6b7c5d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            margin: 0 auto 30px;
+        }
+
+        .aviso-interface {
+            background: #dc3545;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            font-size: 13px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .estrelas {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .estrela {
+            font-size: 50px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #d0d0d0;
+        }
+
+        .estrela:hover,
+        .estrela.ativa {
+            color: #ffd700;
+            transform: scale(1.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            resize: vertical;
+            transition: border 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #6b7c5d;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            padding: 15px;
+            background: #6b7c5d;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-enviar:hover {
+            transform: translateY(-2px);
+            background: #5a6b4d;
+            box-shadow: 0 5px 15px rgba(107, 124, 93, 0.3);
+        }
+
+        .btn-enviar:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nota-selecionada {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .card-avaliacao {
+                padding: 30px 20px;
+            }
+
+            .estrela {
+                font-size: 40px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        <i class="fa-solid fa-people-robbery" id="nav-logo">Mao amiga</i>
+    </div>
+
+    <div class="container">
+        <div class="card-avaliacao">
+            <div class="aviso-interface">
+                Interface de avaliação do prestador de serviços para após a realização
+            </div>
+
+            <div class="prestador-avatar">👤</div>
+
+            <h1>Avalie o serviço de (nome)</h1>
+
+            <div class="estrelas" id="estrelas">
+                <span class="estrela" data-nota="1">★</span>
+                <span class="estrela" data-nota="2">★</span>
+                <span class="estrela" data-nota="3">★</span>
+                <span class="estrela" data-nota="4">★</span>
+                <span class="estrela" data-nota="5">★</span>
+            </div>
+            <div class="nota-selecionada" id="nota-texto"></div>
+
+            <div class="form-group">
+                <label>Conte-nos sobre sua experiência</label>
+                <textarea id="comentario"
+                    placeholder="Compartilhe os detalhes da sua experiência com este serviço..."></textarea>
+            </div>
+
+            <button class="btn-enviar" id="btn-enviar" disabled>Enviar Avaliação</button>
+        </div>
+    </div>
+
+    <script>
+        let notaSelecionada = 0;
+        const estrelas = document.querySelectorAll('.estrela');
+        const btnEnviar = document.getElementById('btn-enviar');
+        const notaTexto = document.getElementById('nota-texto');
+
+        const textos = {
+            1: '⭐ Muito ruim',
+            2: '⭐⭐ Ruim',
+            3: '⭐⭐⭐ Regular',
+            4: '⭐⭐⭐⭐ Bom',
+            5: '⭐⭐⭐⭐⭐ Excelente'
+        };
+
+        estrelas.forEach(estrela => {
+            estrela.addEventListener('click', function () {
+                notaSelecionada = parseInt(this.dataset.nota);
+                atualizarEstrelas();
+                btnEnviar.disabled = false;
+                notaTexto.textContent = textos[notaSelecionada];
+            });
+
+            estrela.addEventListener('mouseenter', function () {
+                const nota = parseInt(this.dataset.nota);
+                estrelas.forEach((e, index) => {
+                    if (index < nota) {
+                        e.style.color = '#ffd700';
+                    } else {
+                        e.style.color = '#d0d0d0';
+                    }
+                });
+            });
+        });
+
+        document.querySelector('.estrelas').addEventListener('mouseleave', function () {
+            atualizarEstrelas();
+        });
+
+        function atualizarEstrelas() {
+            estrelas.forEach((estrela, index) => {
+                if (index < notaSelecionada) {
+                    estrela.classList.add('ativa');
+                } else {
+                    estrela.classList.remove('ativa');
+                }
+            });
+        }
+
+        btnEnviar.addEventListener('click', function () {
+            const comentario = document.getElementById('comentario').value;
+
+            if (notaSelecionada === 0) {
+                alert('Por favor, selecione uma nota!');
+                return;
+            }
+
+            alert(`Avaliação enviada!\nNota: ${notaSelecionada} estrelas\nComentário: ${comentario || 'Sem comentário'}`);
+
+            // Aqui você enviaria para o servidor
+            // window.location.href = 'sucesso.html';
+        });
+
+           const urlParams = new URLSearchParams(window.location.search);
+    const idContratacao = urlParams.get('id');
+    
+    document.getElementById('btn-enviar').onclick = function() {
+        // Enviar para processar_avaliacao.jsp
+        window.location.href = `processar_avaliacao.jsp?id=${idContratacao}&nota=${nota}&comentario=${comentario}`;
+    };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widht=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="login1.css">
+    <title>Tela De Login</title>
+</head>
+
+<body>
+    <main id="form-container">
+        <div id="form-header">
+            <h1 id="form-title">
+                Login
+            </h1>
+            <a href="cadastro.html"> <button class="btn-default" type="button">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </button>
+            </a>
+        </div>
+        <form action="login.jsp" method="post" id="form">
+            <div id="input-container">
+                <div class="input-box">
+                    <label for="email" class="form-label">Login</label>
+                    <div class="input-field">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="exemplo@gmail.com"
+                            required>
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="senha" class="form-label">
+                        Senha
+                    </label>
+                    <div class="input-field">
+                        <input type="password" name="senha" id="senha" class="form-control" placeholder="*******"
+                            required>
+                        <i class="fa-regular fa-eye-slash password-icon"></i>
+                    </div>
+                </div>
+                <a href="#">Esqueci a senha</a>
+            </div>
+
+            <button type="submit" class="btn-default">
+                <i class="fa-solid fa-check"></i>
+                Entrar
+            </button>
+
+            <div class="registrar">
+                <p>Não tem uma conta? <a href="cadastro.html" >Cadastre-se</a></p>
+            </div>
+
+        </form>
+    </main>
+    <script src="login.js"></script>
+</body>
+
+</html>
