@@ -4,6 +4,7 @@
 <%
 // Verificar se está logado
 Integer idUsuarioLogado = (Integer) session.getAttribute("idUsuario");
+String nomeUsuario = (String) session.getAttribute("nomeUsuario");
 if (idUsuarioLogado == null) {
     response.sendRedirect("login.html?redirect=prestador_dashboard.jsp");
     return;
@@ -30,7 +31,6 @@ if (idUsuarioLogado == null) {
         body {
             background: linear-gradient(135deg, #16a5a8 0%, #91d96f 100%);
             min-height: 100vh;
-            padding: 20px;
         }
 
         /* Header */
@@ -38,6 +38,9 @@ if (idUsuarioLogado == null) {
             background: white;
             padding: 20px 8%;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav {
@@ -70,11 +73,24 @@ if (idUsuarioLogado == null) {
             text-decoration: none;
             color: #333;
             font-weight: 500;
+            padding-bottom: 5px;
             transition: all 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: #16a5a8;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #16a5a8;
         }
 
         .user-menu {
@@ -95,11 +111,58 @@ if (idUsuarioLogado == null) {
             transition: color 0.3s;
             text-decoration: none;
         }
-        
+
+        .user-icon:hover {
+            color: #16a5a8;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            z-index: 1;
+            margin-top: 10px;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: #16a5a8;
+        }
+
+        .dropdown-content a:first-child {
+            border-radius: 10px 10px 0 0;
+        }
+
+        .dropdown-content a:last-child {
+            border-radius: 0 0 10px 10px;
+            color: #dc3545;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
@@ -346,10 +409,42 @@ if (idUsuarioLogado == null) {
             .container {
                 grid-template-columns: 1fr;
             }
+            
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="index.jsp" class="logo">
+                <i class="fa-solid fa-people-robbery" id="nav-logo">Mao amiga</i>
+                
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.jsp">Inicio</a></li>
+                <li><a href="servicos_lista.jsp">Contratar Serviços</a></li>
+                <li><a href="prestador_dashboard.jsp" class="active">Prestadores de Serviços</a></li>
+            </ul>
+
+            <div class="user-menu">
+                <span class="user-info">Olá, <%= nomeUsuario %></span>
+                <div class="dropdown">
+                    <a href="#" class="user-icon">👤</a>
+                    <div class="dropdown-content">
+                        <a href="minhas_contratacoes.jsp">Minhas Contratações</a>
+                        <a href="perfil.jsp">Meu Perfil</a>
+                        <a href="prestador_dashboard.jsp">Área do Prestador</a>
+                        <a href="logout.jsp">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <div class="container">
         <div class="lado-esquerdo">
             <div class="card-criar" onclick="window.location.href='criar_servico.jsp'">
@@ -400,7 +495,7 @@ if (idUsuarioLogado == null) {
                         notificacoesHTML.append("<div class='notif-texto'>");
                         notificacoesHTML.append("<p><strong>" + nomeCliente + " quer contratar seu serviço de " + tipoServico + "</strong>");
                         notificacoesHTML.append("<br>📅 " + dataAgendada);
-                        notificacoesHTML.append("<br>📍 " + observacoes + "</p>");
+                        notificacoesHTML.append("<br>📝 " + observacoes + "</p>");
                         notificacoesHTML.append("<div class='notif-acoes'>");
                         notificacoesHTML.append("<button class='btn-aceitar' onclick='responderSolicitacao(" + idContratacao + ", \"confirmado\")'>Aceitar</button>");
                         notificacoesHTML.append("<button class='btn-recusar' onclick='responderSolicitacao(" + idContratacao + ", \"cancelado\")'>Recusar</button>");
