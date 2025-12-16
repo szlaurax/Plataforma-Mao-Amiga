@@ -2,12 +2,14 @@
 
 
 🌐 1. Visão Geral do Projeto
+
 A Plataforma Mão Amiga é uma aplicação web desenvolvida como Produto Mínimo Viável (MVP). Seu principal objetivo é resolver a dificuldade de encontrar micro-serviços e ajuda voluntária de forma organizada e segura dentro de comunidades locais. O sistema funciona como um marketplace que conecta diretamente usuários que Solicitam tarefas (reparos, compras, suporte tecnológico) com Prestadores/Voluntários que oferecem esses serviços na mesma vizinhança.
 
 O projeto visa demonstrar a construção de um ciclo de desenvolvimento web completo (Full Stack) utilizando uma arquitetura robusta de três camadas.
 
 
 🛠️ 2. Stack Tecnológica e Funções
+
 O projeto é construído sobre uma arquitetura Web tradicional baseada em Java/JSP e MySQL.
 
 Tecnologias Utilizadas:
@@ -21,6 +23,7 @@ Interatividade (JavaScript - Vanilla JS / AJAX): Implementa a validação de for
 
 
 🔑 3. Funcionalidades Implementadas (Escopo do MVP)
+
 O escopo do MVP abrange todas as funcionalidades necessárias para simular o ciclo de vida completo de um serviço comunitário:
 
 Módulo de Autenticação: Implementa o cadastro de novos usuários (com seleção de perfil Solicitante/Prestador) e o processo de Login/Logout seguro.
@@ -38,6 +41,7 @@ Habilidades: Inclui o módulo para o Prestador definir e listar os serviços que
 
 
 📊 4. Modelo de Dados (DER)
+
 O projeto segue um Modelo Entidade-Relacionamento (DER) robusto, onde a integridade dos dados é garantida pelas seguintes entidades e relacionamentos:
 
 Entidades Chave: USUARIO, CONTRATACOES, CATEGORIAS, AVALIACOES, e as tabelas de suporte SERVICO e SERVICO_CATEGORIA.
@@ -49,6 +53,7 @@ Rastreabilidade: A tabela AVALIACAO possui as Chaves Estrangeiras (id_avaliador 
 
 
 ⚙️ 5. Guia de Instalação e Execução
+
 Para rodar o projeto localmente, são necessários os seguintes passos:
 
 Requisitos: Instale Java JDK, o servidor Apache Tomcat e o MySQL Server.
@@ -64,6 +69,7 @@ Acesso: Inicie o servidor Tomcat e acesse o projeto através do navegador (Ex: h
 
 
 🤝 6. Contato e Licença
+
 Desenvolvedores: Laura Gonçalves David, Emanuelly da Silva e Isabella do Nascimento
 
 Contato:lauragoncalvesdavid891@gmail.com
