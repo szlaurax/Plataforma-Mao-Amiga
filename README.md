@@ -1,8 +1,8 @@
-📖 README:Plataforma Conecta Comunidade
+📖 README:Plataforma Mão Amiga 
 
 
 🌐 1. Visão Geral do Projeto
-A Plataforma Conecta Comunidade é uma aplicação web desenvolvida como Produto Mínimo Viável (MVP). Seu principal objetivo é resolver a dificuldade de encontrar micro-serviços e ajuda voluntária de forma organizada e segura dentro de comunidades locais. O sistema funciona como um marketplace que conecta diretamente usuários que Solicitam tarefas (reparos, compras, suporte tecnológico) com Prestadores/Voluntários que oferecem esses serviços na mesma vizinhança.
+A Plataforma Mão Amiga é uma aplicação web desenvolvida como Produto Mínimo Viável (MVP). Seu principal objetivo é resolver a dificuldade de encontrar micro-serviços e ajuda voluntária de forma organizada e segura dentro de comunidades locais. O sistema funciona como um marketplace que conecta diretamente usuários que Solicitam tarefas (reparos, compras, suporte tecnológico) com Prestadores/Voluntários que oferecem esses serviços na mesma vizinhança.
 
 O projeto visa demonstrar a construção de um ciclo de desenvolvimento web completo (Full Stack) utilizando uma arquitetura robusta de três camadas.
 
